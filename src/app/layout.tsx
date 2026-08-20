@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+// 서체는 globals.css에서 Pretendard dynamic subset으로 일괄 로드한다.
 export const metadata: Metadata = {
   title: "New JV AI Frontend",
   description: "New JV AI Frontend 배포 확인용 샘플 페이지",
@@ -22,10 +9,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="ko"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
-    >
+    <html lang="ko" className="h-full font-sans antialiased">
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
