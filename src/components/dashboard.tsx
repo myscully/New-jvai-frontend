@@ -334,7 +334,7 @@ function VisitorsChart() {
         </CardAction>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={CHART_CONFIG} className="aspect-auto h-[250px] w-full">
+        <ChartContainer config={CHART_CONFIG} className="aspect-auto h-62.5 w-full">
           <AreaChart data={data}>
             <defs>
               <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
