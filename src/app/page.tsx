@@ -28,7 +28,7 @@ export default function Home() {
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
             New JV AI Frontend의 배포 확인용 샘플 페이지입니다. GitHub에 push하면
-            Vercel이 자동으로 빌드해 이 주소에 반영합니다. 확인 후 다시 테스트
+            Vercel이 자동으로 빌드해 이 주소에 반영합니다. 최종 확인
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
