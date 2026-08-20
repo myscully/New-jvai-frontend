@@ -25,7 +25,7 @@ const data = {
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "대시보드",
       url: "#",
       icon: (
         <LayoutDashboardIcon
@@ -33,7 +33,7 @@ const data = {
       ),
     },
     {
-      title: "Lifecycle",
+      title: "라이프사이클",
       url: "#",
       icon: (
         <ListIcon
@@ -41,7 +41,7 @@ const data = {
       ),
     },
     {
-      title: "Analytics",
+      title: "분석",
       url: "#",
       icon: (
         <ChartBarIcon
@@ -49,7 +49,7 @@ const data = {
       ),
     },
     {
-      title: "Projects",
+      title: "프로젝트",
       url: "#",
       icon: (
         <FolderIcon
@@ -57,7 +57,7 @@ const data = {
       ),
     },
     {
-      title: "Team",
+      title: "팀",
       url: "#",
       icon: (
         <UsersIcon
@@ -67,7 +67,7 @@ const data = {
   ],
   navClouds: [
     {
-      title: "Capture",
+      title: "캡처",
       icon: (
         <CameraIcon
         />
@@ -76,17 +76,17 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "진행 중 제안서",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "보관함",
           url: "#",
         },
       ],
     },
     {
-      title: "Proposal",
+      title: "제안서",
       icon: (
         <FileTextIcon
         />
@@ -94,17 +94,17 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "진행 중 제안서",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "보관함",
           url: "#",
         },
       ],
     },
     {
-      title: "Prompts",
+      title: "프롬프트",
       icon: (
         <FileTextIcon
         />
@@ -112,11 +112,11 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "진행 중 제안서",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "보관함",
           url: "#",
         },
       ],
@@ -124,7 +124,7 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Settings",
+      title: "설정",
       url: "#",
       icon: (
         <Settings2Icon
@@ -132,7 +132,7 @@ const data = {
       ),
     },
     {
-      title: "Get Help",
+      title: "도움말",
       url: "#",
       icon: (
         <CircleHelpIcon
@@ -140,7 +140,7 @@ const data = {
       ),
     },
     {
-      title: "Search",
+      title: "검색",
       url: "#",
       icon: (
         <SearchIcon
@@ -150,7 +150,7 @@ const data = {
   ],
   documents: [
     {
-      name: "Data Library",
+      name: "데이터 라이브러리",
       url: "#",
       icon: (
         <DatabaseIcon
@@ -158,7 +158,7 @@ const data = {
       ),
     },
     {
-      name: "Reports",
+      name: "리포트",
       url: "#",
       icon: (
         <FileChartColumnIcon
@@ -166,7 +166,7 @@ const data = {
       ),
     },
     {
-      name: "Word Assistant",
+      name: "워드 어시스턴트",
       url: "#",
       icon: (
         <FileIcon
@@ -188,7 +188,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <CommandIcon className="size-5!" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">JV AI</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
