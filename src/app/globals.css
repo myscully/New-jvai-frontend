@@ -123,14 +123,48 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
   body {
-    @apply bg-background text-foreground;
+    /* inset variant 사이드바가 있으면 배경을 sidebar 색으로 (셸 여백이 카드처럼 보이게) */
+    @apply min-h-svh w-full bg-background text-foreground has-[div[data-variant='inset']]:bg-sidebar;
   }
   html {
-    @apply font-sans;
+    @apply overflow-x-hidden font-sans;
+  }
+  /* Radix가 모달 오픈 시 body를 스크롤 락하면 sticky 헤더가 깨지므로 해제한다 */
+  body[data-scroll-locked] {
+    overflow: unset !important;
   }
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+  /* 모바일에서 입력 포커스 시 자동 확대 방지 */
+  @media screen and (max-width: 767px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* Radix Collapsible 높이 애니메이션 (사이드바 중첩 메뉴) */
+.CollapsibleContent {
+  overflow: hidden;
+}
+.CollapsibleContent[data-state="open"] {
+  animation: slideDown 300ms ease-out;
+}
+.CollapsibleContent[data-state="closed"] {
+  animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from { height: 0; }
+  to { height: var(--radix-collapsible-content-height); }
+}
+
+@keyframes slideUp {
+  from { height: var(--radix-collapsible-content-height); }
+  to { height: 0; }
 }

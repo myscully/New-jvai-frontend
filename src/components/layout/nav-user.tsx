@@ -1,12 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut } from "lucide-react"
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,18 +19,18 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { EllipsisVerticalIcon, CircleUserRoundIcon, CreditCardIcon, BellIcon, LogOutIcon } from "lucide-react"
 
-export function NavUser({
-  user,
-}: {
+type NavUserProps = {
   user: {
     name: string
     email: string
     avatar: string
   }
-}) {
+}
+
+export function NavUser({ user }: NavUserProps) {
   const { isMobile } = useSidebar()
+  const initials = user.name.slice(0, 2).toUpperCase()
 
   return (
     <SidebarMenu>
@@ -44,17 +41,15 @@ export function NavUser({
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <Avatar className="h-8 w-8 rounded-lg grayscale">
+              <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{user.name}</span>
-                <span className="truncate text-xs text-muted-foreground">
-                  {user.email}
-                </span>
+              <div className="grid flex-1 text-start text-sm leading-tight">
+                <span className="truncate font-semibold">{user.name}</span>
+                <span className="truncate text-xs">{user.email}</span>
               </div>
-              <EllipsisVerticalIcon className="ml-auto size-4" />
+              <ChevronsUpDown className="ms-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -64,41 +59,39 @@ export function NavUser({
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+              <div className="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">
+                    {initials}
+                  </AvatarFallback>
                 </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs text-muted-foreground">
-                    {user.email}
-                  </span>
+                <div className="grid flex-1 text-start text-sm leading-tight">
+                  <span className="truncate font-semibold">{user.name}</span>
+                  <span className="truncate text-xs">{user.email}</span>
                 </div>
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <CircleUserRoundIcon
-                />
+              {/* 설정 라우트가 아직 없으므로 비활성 */}
+              <DropdownMenuItem disabled>
+                <BadgeCheck />
                 계정
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCardIcon
-                />
+              <DropdownMenuItem disabled>
+                <CreditCard />
                 결제
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <BellIcon
-                />
+              <DropdownMenuItem disabled>
+                <Bell />
                 알림
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem variant="destructive" asChild>
               <Link href="/login">
-                <LogOutIcon />
+                <LogOut />
                 로그아웃
               </Link>
             </DropdownMenuItem>
